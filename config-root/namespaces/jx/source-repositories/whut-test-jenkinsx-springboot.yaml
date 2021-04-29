@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: whut-test
+    provider: github
+    repository: jenkinsx-springboot
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: whut-test-jenkinsx-springboot
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/whut-test/jenkinsx-springboot.git
+  org: whut-test
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: jenkinsx-springboot
+  scheduler:
+    kind: ""
+    name: in-repo
+  url: https://github.com/whut-test/jenkinsx-springboot
