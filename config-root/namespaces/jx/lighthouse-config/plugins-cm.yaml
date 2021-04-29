@@ -6,6 +6,10 @@ data:
       repos:
       - whut-test/jx3-minikube
       require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
+      - whut-test/jenkinsx-springboot
+      require_self_approval: true
     cat: {}
     cherry_pick_unapproved: {}
     config_updater:
@@ -16,6 +20,9 @@ data:
         env/prow/plugins.yaml:
           name: plugins
     external_plugins:
+      whut-test/jenkinsx-springboot:
+      - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
+        name: cd-indicators
       whut-test/jx3-minikube:
       - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
         name: cd-indicators
@@ -24,6 +31,22 @@ data:
       additional_labels: null
     owners: {}
     plugins:
+      whut-test/jenkinsx-springboot:
+      - approve
+      - assign
+      - blunderbuss
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - heart
+      - cat
+      - dog
+      - pony
       whut-test/jx3-minikube:
       - config-updater
       - approve
@@ -53,6 +76,11 @@ data:
     - repos:
       - whut-test/jx3-minikube
       trusted_org: todo
+    - repos:
+      - whut-test/jenkinsx-springboot
+      trusted_org: todo
+    welcome:
+    - message_template: Welcome
 kind: ConfigMap
 metadata:
   creationTimestamp: null
